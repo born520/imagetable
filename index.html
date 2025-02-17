@@ -10,22 +10,22 @@
   li { margin-bottom: 10px; }
   a { display: block; padding: 12px 15px; background-color: #f0f0f0; border-radius: 4px; text-decoration: none; color: #333; transition: background-color 0.2s ease; }
   a:hover { background-color: #ddd; }
-    .tab-link {
-    font-size: 0.9em; /* 탭 글자 크기 */
-    width: calc(25% - 8px); /* 4개씩 배치, 여백 고려 */
-    box-sizing: border-box;
-    display: inline-block;
-  }
-  .tab-menu {
-     display: flex;
-     flex-wrap: wrap; /* 4개씩 묶어서 줄바꿈 */
-     margin-bottom: 10px;
-     justify-content: flex-start; /* 왼쪽 정렬 (필요에 따라 변경) */
-   }
-    .tab-link.active { /* 현재 페이지 탭 스타일 */
-    background-color: #ddd;
-    font-weight: bold;
-  }
+ .tab-link {
+    font-size: 0.9em;
+    width: calc(25% - 8px);
+    box-sizing: border-box;
+    display: inline-block;
+  }
+  .tab-menu {
+      display: flex;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+      justify-content: flex-start;
+   }
+    .tab-link.active {
+    background-color: #ddd;
+    font-weight: bold;
+  }
 
 </style>
 </head><body>
