@@ -54,7 +54,8 @@
         .sheet-section.active {
             display: block;
         }
-        img:not([href]) {
+        /* 하이퍼링크가 없는 이미지만 클릭 불가능하도록 수정 */
+        td:not(:has(a)) img {
             pointer-events: none !important;
             cursor: default !important;
             user-select: none !important;
@@ -114,9 +115,9 @@
                 setActiveSheet(hash);
             });
 
-            // 페이지 로드 시 해시 확인
+            // 초기 로드 시 해시 확인 또는 첫 번째 시트 표시
             const initialHash = location.hash.substring(1);
-            setActiveSheet(initialHash);
+            setActiveSheet(initialHash || tabLinks[0]?.getAttribute('href')?.substring(1));
         });
     </script>
 </body>
