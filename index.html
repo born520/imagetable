@@ -11,32 +11,53 @@
         .tab-menu { display: flex; flex-wrap: wrap; margin-bottom: 10px; justify-content: flex-start;}
         .tab-link.active { background-color: #ddd; font-weight: bold; }
         .tab-link:focus, .tab-link:hover { outline: none; box-shadow: 0 0 0 2px blue; }
+        #content-iframe { width: 100%; height: 500px; border: none; }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="tab-menu" style="display: flex; margin-bottom: 10px; flex-wrap: wrap;"><a href="index.html" class="tab-link" style="box-sizing: border-box; width: calc(25% - 8px); padding: 10px 15px; background-color: #f0f0f0; border: 1px solid #ccc; text-decoration: none; color: #333; margin-right: 8px; margin-bottom: 8px; border-top-left-radius: 4px; border-top-right-radius: 4px; font-size: 0.9em; display: block; text-align: center;">2025 다낭 차량요금</a><a href="2025 다낭.html" class="tab-link" style="box-sizing: border-box; width: calc(25% - 8px); padding: 10px 15px; background-color: #f0f0f0; border: 1px solid #ccc; text-decoration: none; color: #333; margin-right: 8px; margin-bottom: 8px; border-top-left-radius: 4px; border-top-right-radius: 4px; font-size: 0.9em; display: block; text-align: center;">2025 다낭</a></div>
+        <div class="tab-menu" style="display: flex; margin-bottom: 10px; flex-wrap: wrap;"><a href="#" class="tab-link" data-filename="index.html" style="box-sizing: border-box; width: calc(25% - 8px); padding: 10px 15px; background-color: #f0f0f0; border: 1px solid #ccc; text-decoration: none; color: #333; margin-right: 8px; margin-bottom: 8px; border-top-left-radius: 4px; border-top-right-radius: 4px; font-size: 0.9em; display: block; text-align: center;">2025 다낭 차량요금</a><a href="2025 다낭.html" class="tab-link" data-filename="2025 다낭.html" style="box-sizing: border-box; width: calc(25% - 8px); padding: 10px 15px; background-color: #f0f0f0; border: 1px solid #ccc; text-decoration: none; color: #333; margin-right: 8px; margin-bottom: 8px; border-top-left-radius: 4px; border-top-right-radius: 4px; font-size: 0.9em; display: block; text-align: center;">2025 다낭</a></div>
+        <iframe id="content-iframe" src="index.html"></iframe>
     </div>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const tabLinks = document.querySelectorAll('.tab-link');
+            const contentIframe = document.getElementById('content-iframe');
 
             function setActiveTab() {
-                let hash = window.location.hash.substring(1); // # 제거
-                if (!hash) {
-                    hash = "index"; // 기본 탭
+                let hash = window.location.hash.substring(1);
+                let targetFileName = hash ? hash + ".html" : "index.html";
+
+                if(hash === '' || hash === 'index'){
+                    targetFileName = 'index.html';
                 }
-                const targetFileName = (hash === "index" ? "index.html" : hash + ".html");
 
                 tabLinks.forEach(link => {
                     link.classList.remove('active');
-                    if (link.getAttribute('href') === targetFileName) {
+                    if (link.dataset.filename === targetFileName) {
                         link.classList.add('active');
                     }
                 });
+
+                if(targetFileName !== 'index.html'){
+                  contentIframe.src = targetFileName;
+                }
             }
+
+            tabLinks.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    if (this.dataset.filename === 'index.html') {
+                      window.location.hash = '';
+                    } else {
+                      window.location.hash = this.dataset.filename.replace('.html', '');
+                    }
+                    setActiveTab();
+                    event.preventDefault();
+                });
+            });
+
             window.addEventListener('hashchange', setActiveTab);
-            setActiveTab(); // 초기 로드 시에도 실행
+            setActiveTab();
         });
     </script>
 </body>
