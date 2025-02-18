@@ -11,9 +11,8 @@
         .tab-menu { display: flex; flex-wrap: wrap; margin-bottom: 10px; justify-content: flex-start;}
         .tab-link.active { background-color: #ddd; font-weight: bold; }
         .tab-link:focus, .tab-link:hover { outline: none; box-shadow: 0 0 0 2px blue; }
-        /* Initially hide all sheet sections */
         .sheet-section { display: none; padding-top: 10px; }
-        .sheet-section.active { display: block; } /* Show active section */
+        .sheet-section.active { display: block; }
     </style>
 </head>
 <body>
@@ -27,46 +26,40 @@
             const sheetSections = document.querySelectorAll('.sheet-section');
 
             function showSheet(sheetName) {
-                // Hide all sections, then show the selected one
                 sheetSections.forEach(section => {
                     section.classList.remove('active');
                 });
                 const targetSection = document.querySelector(`.sheet-section[data-sheet-name="${sheetName}"]`);
-
-                if(targetSection){  // Make sure the section exists
-                  targetSection.classList.add('active');
+                if (targetSection) {
+                    targetSection.classList.add('active');
                 }
 
-                // Deactivate all tabs, then activate the selected one
                 tabLinks.forEach(link => {
                     link.classList.remove('active');
                 });
                 const targetTab = document.querySelector(`.tab-link[data-sheet-name="${sheetName}"]`);
-                if(targetTab){ // Make sure the tab exists.
-                  targetTab.classList.add('active');
+                if (targetTab) {
+                    targetTab.classList.add('active');
                 }
             }
 
-            // Set up click event listeners for tabs
             tabLinks.forEach(link => {
                 link.addEventListener('click', function(event) {
                     event.preventDefault();
                     const sheetName = this.dataset.sheetName;
                     showSheet(sheetName);
-                    window.location.hash = sheetName; // Update URL hash
+                    window.location.hash = sheetName;
                 });
             });
 
-            // Initial setup based on URL hash
             function setInitialSheet() {
-                let hash = window.location.hash.substring(1); // Remove '#'
-                 if (!hash) {
-                  hash = "2025 다낭 차량요금";
+                let hash = window.location.hash.substring(1);
+                if (!hash) {
+                    hash = "2025 다낭 차량요금";
                 }
                 showSheet(hash);
             }
 
-            // Call setInitialSheet on page load and hash change
             setInitialSheet();
             window.addEventListener('hashchange', setInitialSheet);
         });
