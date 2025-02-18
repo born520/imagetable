@@ -9,8 +9,8 @@
         .container { width: 95%; max-width: 1200px; margin: 0 auto; }
         table { border-collapse: collapse; width: 100%; table-layout: fixed; }
         th, td { padding: 8px; white-space: pre-wrap; word-wrap: break-word; box-sizing: border-box; }
-        .sheet-section { padding-top: 10px; display: none; } /* Initially hide all sections */
-        .sheet-section.active { display: block; } /* Show the active section */
+        .sheet-section { padding-top: 10px; display: none; }
+        .sheet-section.active { display: block; }
         .tab-link { font-size: 0.9em; box-sizing: border-box; cursor: pointer; }
         .tab-menu { display: flex; flex-wrap: wrap; margin-bottom: 10px; justify-content: flex-start;}
         .tab-link.active { background-color: #ddd; font-weight: bold; }
@@ -25,45 +25,51 @@
         </div>
     </div>
     <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const tabLinks = document.querySelectorAll('.tab-link');
-        const sheetSections = document.querySelectorAll('.sheet-section');
+        (function() { // IIFE로 감싸서 전역 오염 방지
+            document.addEventListener('DOMContentLoaded', function() {
+                const tabLinks = document.querySelectorAll('.tab-link');
+                const sheetSections = document.querySelectorAll('.sheet-section');
 
-        // Function to show a specific sheet
-        function showSheet(sheetName) {
-          sheetSections.forEach(section => {
-            section.classList.remove('active');
-            if (section.dataset.sheetName === sheetName) {
-              section.classList.add('active');
-            }
-          });
+                function showSheet(sheetName) {
+                    sheetSections.forEach(section => {
+                        section.classList.remove('active');
+                        if (section.dataset.sheetName === sheetName) {
+                            section.classList.add('active');
+                        }
+                    });
 
-          tabLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.textContent.trim() === sheetName) {
-                link.classList.add('active');
-            }
-          });
-        }
+                    tabLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.dataset.filename === sheetName + '.html' || (sheetName === 'index' && link.dataset.filename === 'index.html')) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
 
-        // Show the first sheet by default, or the one specified in URL hash
-        const defaultSheetName = sheetData[0].name;
-        const urlHash = window.location.hash.substring(1); // Remove the '#'
-        const initialSheet = urlHash || defaultSheetName;
-          showSheet(initialSheet);
+                // URL 해시 확인 및 초기 시트 설정
+                let initialSheet = 'index'; // 기본값
+                if(window.location.hash) {
+                  initialSheet = window.location.hash.substring(1); // # 제거
+                }
 
+                // sheetData를 사용하여 시트 이름 검증
+                const validSheetNames = ["2025 다낭 차량요금","2025 다낭"];
+                if (!validSheetNames.includes(initialSheet)) {
+                    initialSheet = 'index'; // 유효하지 않은 시트 이름이면 index로
+                }
 
-        // Event listener for tab clicks
-        tabLinks.forEach(link => {
-          link.addEventListener('click', function(event) {
-            event.preventDefault();
-            const sheetName = this.textContent.trim();  // Get sheet name from tab
-              showSheet(sheetName);
-               // Update URL hash (optional)
-              window.location.hash = sheetName;
-          });
-        });
-      });
+                showSheet(initialSheet);
+
+                tabLinks.forEach(link => {
+                    link.addEventListener('click', function(event) {
+                        event.preventDefault();
+                        const sheetName = this.dataset.filename.replace('.html', '');
+                        showSheet(sheetName);
+                        window.location.hash = sheetName; // URL 해시 업데이트
+                    });
+                });
+            });
+        })(); // IIFE 즉시 실행
     </script>
 </body>
 </html>
