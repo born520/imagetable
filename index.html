@@ -22,7 +22,7 @@
         <button class="tab-button" onclick="openTab('page2')">장가계_장룡항공(룽에어)_0002</button>
         <button class="tab-button" onclick="openTab('page3')">장가계_장룡항공(룽에어)_0003</button>
         <button class="tab-button" onclick="openTab('page4')">장가계_장룡항공(룽에어)_0004</button>
-        <button class="tab-button" onclick="openTab('page4')">장가계_장룡항공(룽에어)_0005</button>
+        <button class="tab-button" onclick="openTab('page5')">장가계_장룡항공(룽에어)_0005</button>
     </div>
 
     <div id="page1" class="tab-content"></div>
@@ -47,6 +47,10 @@
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById(targetId).innerHTML = data;
+                })
+                .catch(error => {
+                    console.error("파일 로드 실패:", error);
+                    document.getElementById(targetId).innerHTML = "파일을 불러오는 데 실패했습니다.";
                 });
         }
     </script>
