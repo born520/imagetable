@@ -1,7 +1,11 @@
-﻿body {    margin: 0 auto; /* 가운데 정렬 스타일 추가 */
+body {
+    margin: 0 auto; /* 가운데 정렬 스타일 추가 */
     width: 90%; /* 또는 원하는 너비 */
     padding-top: 2mm; /* 기존 padding 유지 */
-    /* 나머지 기존 스타일 유지 */margin:0;padding-left:0;padding-right:0;padding-bottom:0;padding-top:2mm;}
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 0; 
+}
 .hce {margin:0;padding:0;position:absolute;overflow:hidden;}
 .hme {margin:0;padding:0;position:absolute;}
 .hhe {margin:0;padding:0;position:relative;}
@@ -81,63 +85,6 @@
 .cs20 {font-size:25pt;color:#091ED7;font-family:"함초롬바탕";font-weight:bold;}
 .cs21 {font-size:25pt;color:#FF0000;font-family:"함초롬바탕";font-weight:bold;}
 .cs22 {font-size:19pt;color:#000000;font-family:"맑은 고딕";font-weight:bold;}
-.cs23 {font-size:15pt;color:#FFFFFF;font-family:"맑은 고딕";font-weight:bold;}
-.cs24 {font-size:15pt;color:#80FF00;font-family:"맑은 고딕";font-weight:bold;}
-.cs25 {font-size:15pt;color:#CCFF00;font-family:"맑은 고딕";font-weight:bold;}
-.cs26 {font-size:15pt;color:#FFFFFF;font-family:"맑은 고딕";font-weight:bold;}
-.cs27 {font-size:15pt;color:#FFFF00;font-family:"맑은 고딕";font-weight:bold;}
-.cs28 {font-size:10pt;color:#000000;font-family:"맑은 고딕";font-weight:bold;}
-.cs29 {font-size:10pt;color:#FF0000;font-family:"맑은 고딕";font-weight:bold;}
-.cs30 {font-size:9pt;color:#0000FF;font-family:"맑은 고딕";font-weight:bold;}
-.cs31 {font-size:9pt;color:#FF6600;font-family:"맑은 고딕";font-weight:bold;}
-.cs32 {font-size:9pt;color:#FF0000;font-family:"맑은 고딕";font-weight:bold;}
-.cs33 {font-size:15pt;color:#42C7F1;font-family:"맑은 고딕";font-weight:bold;}
-.cs34 {font-size:5pt;color:#000000;font-family:"맑은 고딕";font-weight:bold;}
-.cs35 {font-size:15pt;color:#00FFFF;font-family:"맑은 고딕";font-weight:bold;}
-.cs36 {font-size:9pt;color:#F62828;font-family:"맑은 고딕";font-weight:bold;}
-.cs37 {font-size:15pt;color:#EB6F6F;font-family:"맑은 고딕";font-weight:bold;}
-.cs38 {font-size:9pt;color:#CCFF00;font-family:"맑은 고딕";font-weight:bold;}
-.cs39 {font-size:9.50pt;color:#F62828;font-family:"맑은 고딕";font-weight:bold;}
-.cs40 {font-size:9pt;color:#FFFFFF;font-family:"맑은 고딕";font-weight:bold;}
-.cs41 {font-size:9pt;color:#FFFF00;font-family:"맑은 고딕";font-weight:bold;}
-.cs42 {font-size:9pt;color:#EB5800;font-family:"맑은 고딕";font-weight:bold;}
-.cs43 {font-size:9pt;color:#1E7452;font-family:"맑은 고딕";font-weight:bold;}
-.cs44 {font-size:25pt;color:#151E6F;font-family:"함초롬바탕";font-weight:bold;}
-.cs45 {font-size:12pt;color:#FFFFFF;font-family:"맑은 고딕";font-weight:bold;}
-.cs46 {font-size:12pt;color:#FFFFFF;font-family:"맑은 고딕";font-weight:bold;}
-.cs47 {font-size:15pt;color:#000000;font-family:"맑은 고딕";font-weight:bold;}
-.cs48 {font-size:12pt;color:#000000;font-family:"맑은 고딕";}
-.cs49 {font-size:18pt;color:#000000;font-family:"맑은 고딕";font-weight:bold;}
-.cs50 {font-size:20pt;color:#000000;font-family:"맑은 고딕";font-weight:bold;}
-.cs51 {font-size:9pt;color:#000000;font-family:"맑은 고딕";font-weight:bold;}
-.cs52 {font-size:15pt;color:#FFE500;font-family:"맑은 고딕";font-weight:bold;}
-.cs53 {font-size:15pt;color:#90EAEA;font-family:"맑은 고딕";font-weight:bold;}
-.cs54 {font-size:12pt;color:#D70909;font-family:"맑은 고딕";font-weight:bold;}
-.cs55 {font-size:15pt;color:#0000FF;font-family:"맑은 고딕";font-weight:bold;}
-.cs56 {font-size:9pt;color:#0000FF;font-family:"맑은 고딕";font-weight:bold;}
-.ps0 {text-align:justify;}
-.ps1 {text-align:justify;}
-.ps2 {text-align:justify;}
-.ps3 {text-align:justify;}
-.ps4 {text-align:justify;}
-.ps5 {text-align:justify;}
-.ps6 {text-align:justify;}
-.ps7 {text-align:justify;}
-.ps8 {text-align:justify;}
-.ps9 {text-align:justify;}
-.ps10 {text-align:justify;}
-.ps11 {text-align:left;}
-.ps12 {text-align:left;}
-.ps13 {text-align:left;}
-.ps14 {text-align:left;}
-.ps15 {text-align:left;}
-.ps16 {text-align:justify;}
-.ps17 {text-align:justify;}
-.ps18 {text-align:justify;}
-.ps19 {text-align:justify;}
-.ps20 {text-align:center;}
-.ps21 {text-align:left;}
-.ps22 {text-align:justify;}
 .ps23 {text-align:justify;}
 .ps24 {text-align:center;}
 .ps25 {text-align:left;}
