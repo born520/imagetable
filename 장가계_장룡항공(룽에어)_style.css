@@ -1,7 +1,11 @@
-﻿body {    margin: 0 auto; /* 가운데 정렬 스타일 추가 */
+body {
+    margin: 0 auto; /* 가운데 정렬 스타일 추가 */
     width: 90%; /* 또는 원하는 너비 */
     padding-top: 2mm; /* 기존 padding 유지 */
-    /* 나머지 기존 스타일 유지 */margin:0;padding-left:0;padding-right:0;padding-bottom:0;padding-top:2mm;}
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 0; 
+}
 .hce {margin:0;padding:0;position:absolute;overflow:hidden;}
 .hme {margin:0;padding:0;position:absolute;}
 .hhe {margin:0;padding:0;position:relative;}
@@ -153,5 +157,4 @@
 @media print {
 .hpa {margin:0;border:0 black none;box-shadow:none;}
 body {padding:0;}
-
-}
+}       
